@@ -1,13 +1,8 @@
 "use client";
 import React from "react";
 import InputApp from "../components/Input/InputApp";
-import { useRouter } from 'next/navigation';
 
-function LoginPage() {
-  const router=useRouter()
-  function handleClick() {
-    router.push('/register');
-  }
+function page() {
   return (
     <div className="bg-gray-300 min-h-screen flex justify-center items-center ">
       <div className="">
@@ -25,7 +20,7 @@ function LoginPage() {
           </div>
           <p className="text-xs pr-3 pb-3 text-gray-500 ">
             <span className="">حساب کارفرمایی ندارید؟</span>
-            <span onClick={handleClick} className=" cursor-pointer hover:font-bold mr-1">ثبت نام کارفرما</span>
+            <span className="">ثبت نام کارفرما</span>
           </p>
         </div>{" "}
       </div>
@@ -33,4 +28,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default page;
