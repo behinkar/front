@@ -1,4 +1,4 @@
-import { AdsBanners, Footer, HeroHeader, JobSuggestion, NewJobs, TopMenu } from "./components/landingPage";
+import { AdsBanners, Footer, HeroHeader, JobSuggestion, NewJobs, TopMenu,SearchPart } from "./components/landingPage";
 
 
 export default function Home() {
@@ -7,6 +7,7 @@ export default function Home() {
       <div class="min-h-screen bg-gray-300  px-4">
         <TopMenu />
         <HeroHeader />
+        <SearchPart/>
         <JobSuggestion />
         <AdsBanners />
         <NewJobs />

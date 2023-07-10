@@ -4,3 +4,6 @@ export { default as HeroHeader } from './HeroHeader';
 export { default as JobSuggestion } from './JobSuggestion';
 export { default as NewJobs } from './NewJobs';
 export { default as TopMenu } from './TopMenu';
+export { default as SearchPart } from './SearchPart';
+
+
