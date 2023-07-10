@@ -16,7 +16,7 @@ export default AdsBanners;
 function Banner({btnTitle,texts}) {
   return (
     <>
-      <div class="rounded-lg flex flex-col justify-between p-4 shadow-md grow text-gray-700 bg-gray-50">
+      <div class="rounded-lg flex flex-col justify-between p-4 shadow-md grow text-gray-700 bg-gray-50 my-4">
         {texts.map((text,index)=>(
           <p className="mt-4 text-xl " key={index}>{text}</p>
         ))}
