@@ -8,9 +8,9 @@ function Footer() {
         <div className="">
           <p className="">ما را در شبکه های اجتماعی دنبال کنید.</p>
           <div className="flex items-center justify-center gap-6 py-4 border-b border-gray-400">
-            <AiOutlineInstagram size={25} />
-            <BsTelegram size={25} />
-            <AiOutlineLinkedin size={25} />
+            <AiOutlineInstagram size={25} className=" cursor-pointer" />
+            <BsTelegram size={25}  className="cursor-pointer"/>
+            <AiOutlineLinkedin size={25}  className="cursor-pointer"/>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@ function ItemListComponent({ title,Items }) {
         <div className="w-24 h-0.5 bg-gray-800"></div>
         <div className="mt-2">
         {Items.map((item,index)=>(
-          <p key={index} className="my-3 text-center">{item}</p>
+          <p key={index} className="my-3 text-center cursor-pointer hover:font-bold">{item}</p>
         ))}
         </div>
       </div>
