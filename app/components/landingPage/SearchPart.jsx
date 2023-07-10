@@ -37,7 +37,7 @@ function SearchPart() {
       />
       <BiSearch
        size={30}
-       className=' cursor-pointer hover:scale-105 text-blue-600 '
+       className=' cursor-pointer hover:scale-105 text-gray-600 '
        color=""
       />
     </div>
