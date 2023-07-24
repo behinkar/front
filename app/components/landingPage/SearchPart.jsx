@@ -5,7 +5,7 @@ import { BiSearch } from "react-icons/bi";
 
 function SearchPart() {
   return (
-    <div className="flex justify-center items-center gap-4 my-6">
+    <div className="flex justify-center items-center gap-4 my-6 bg-[#b2c4e2]/[.46] rounded-b-3xl min-h-[500px]">
       <input type="text" className="self-stretch rounded border placeholder:text-[#828080] placeholder:text-sm w-52 border-[#c9cacc] py-2 px-4 focus:outline-none focus:border-2 focus:border-blue-500 focus:shadow-outline-blue " placeholder="عنوان شغلی ..." />
       <Select
         className="w-52 "
