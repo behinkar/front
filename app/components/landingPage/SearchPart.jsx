@@ -6,7 +6,9 @@ import { RiSearch2Line } from "react-icons/ri";
 
 function SearchPart() {
   return (
-    <div className="bg-[#b2c4e2]/[.46] min-h-[500px] flex flex-col">
+    <div className="bg-[#b2c4e2]/[.46] min-h-[500px] flex flex-col  bg-contain bg-no-repeat bg-center "
+    style={{ backgroundImage: "url('/images/bgsearch.png')" }}
+    >
       <p className="text-center py-6 font-bold text-xl text-gray-600">
         بهین کار سامانه کاریابی انلاین در جنوب شرق ایران
       </p>
