@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { TiUser } from "react-icons/ti";
 
 function TopMenu() {
   return (
@@ -12,11 +13,20 @@ function TopMenu() {
         <Link href="/#">جستجو مشاغل</Link>
       </div>
       <div className="flex">
-        <div className=""></div>
+        <div className="flex ml-8 items-center  gap-1">
+        <TiUser
+            size={30}
+            className=" cursor-pointer hover:scale-105"
+            color=""
+          />
+          <span className="text-sm">ورود / ثبت نام</span>
+        
+        </div>
         <div className="font-black text-colorTitle text-xl">بهین کار</div>
       </div>
     </div>
   );
 }
 
+ 
 export default TopMenu;
