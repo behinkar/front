@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 import Select from "react-select";
 import { RiSearch2Line } from "react-icons/ri";
@@ -6,8 +7,10 @@ import { RiSearch2Line } from "react-icons/ri";
 function SearchPart() {
   return (
     <div className="bg-[#b2c4e2]/[.46] min-h-[500px] flex flex-col">
-      <p className="text-center py-6 font-bold text-xl text-gray-600">بهین کار  سامانه کاریابی انلاین  در جنوب شرق ایران</p>
-      <div className="flex  justify-center items-center gap-4 my-6  rounded-b-3xl ">
+      <p className="text-center py-6 font-bold text-xl text-gray-600">
+        بهین کار سامانه کاریابی انلاین در جنوب شرق ایران
+      </p>
+      <div className="flex grow justify-center items-center gap-4 my-6  rounded-b-3xl ">
         <input
           type="text"
           className="rounded border placeholder:text-[#828080] placeholder:text-sm w-64 border-[#c9cacc] py-2 px-4 focus:outline-none focus:border-2 focus:border-blue-500 focus:shadow-outline-blue "
@@ -42,15 +45,15 @@ function SearchPart() {
           ]}
         />
         <div className="px-4 bg-bgBtn py-1 transition duration-150 ease-in rounded-md cursor-pointer active:scale-95 hover:scale-110">
-          <RiSearch2Line
-            size={25}
-            className="text-gray-700 "
-            color=""
-          />
+          <RiSearch2Line size={25} className="text-gray-700 " color="" />
         </div>
       </div>
-      <p className="text-center py-6 font-bold text-sm text-gray-700">مشاهده همه فرصت های شغلی</p>
-
+      <Link
+        className="text-center py-6 font-bold text-sm text-gray-700"
+        href="#"
+      >
+        مشاهده همه فرصت های شغلی
+      </Link>
     </div>
   );
 }
