@@ -6,13 +6,13 @@ import { RiSearch2Line } from "react-icons/ri";
 
 function SearchPart() {
   return (
-    <div className="bg-[#b2c4e2]/[.46] min-h-[500px] flex flex-col  bg-contain bg-no-repeat bg-center "
+    <div className="bg-[#b2c4e2]/[.46] min-h-[500px] flex flex-col rounded-b-3xl   bg-contain bg-no-repeat bg-center "
     style={{ backgroundImage: "url('/images/bgsearch.png')" }}
     >
       <p className="text-center py-6 font-bold text-xl text-gray-600">
         بهین کار سامانه کاریابی انلاین در جنوب شرق ایران
       </p>
-      <div className="flex grow justify-center items-center gap-4 my-6  rounded-b-3xl ">
+      <div className="flex grow justify-center items-center gap-4 my-6  ">
         <input
           type="text"
           className="rounded border placeholder:text-[#828080] placeholder:text-sm w-64 border-[#c9cacc] py-2 px-4 focus:outline-none focus:border-2 focus:border-blue-500 focus:shadow-outline-blue "
