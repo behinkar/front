@@ -10,7 +10,7 @@ function TopMenu() {
         <Link href="/#">فرصت های شغلی</Link>
         <Link href="/#">آکادمی</Link>
         <Link href="/#">رزومه ساز</Link>
-        <Link href="/#">جستجو مشاغل</Link>
+        <Link href="/search">جستجو مشاغل</Link>
       </div>
       <div className="flex">
         <div className="flex ml-8 items-center  gap-1">
@@ -19,7 +19,11 @@ function TopMenu() {
             className=" cursor-pointer hover:scale-105"
             color=""
           />
-          <span className="text-sm">ورود / ثبت نام</span>
+        <Link href="/login" className="text-sm hover:font-bold">ورود </Link>
+        <span className="mx-2">/</span>
+        <Link href="/register" className="text-sm hover:font-bold">  ثبت نام</Link>
+
+
         
         </div>
         <div className="font-black text-colorTitle text-xl">بهین کار</div>
