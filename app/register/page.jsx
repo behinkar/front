@@ -14,7 +14,7 @@ function RegisterPage() {
         <title>ثبت نام کارفرما</title>
       </Head>
       <div className="grid grid-cols-[2fr_3fr] bg-gray-300">
-        <div className=" bg-contain bg-no-repeat " style={{ backgroundImage: `url('/images/bgLogin.png')` }}></div>
+        <div className=" bg-contain bg-no-repeat bg-right" style={{ backgroundImage: `url('/images/bgLogin.png')` }}></div>
         <div className=" min-h-screen">
           <div className="flex justify-between items-center p-4 text-gray-600 text-sm">
             <span className="">Logo</span>
