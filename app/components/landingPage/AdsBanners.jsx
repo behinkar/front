@@ -16,7 +16,7 @@ export default AdsBanners;
 function Banner({btnTitle,texts}) {
   return (
     <>
-      <div class="rounded-lg flex flex-col justify-between p-4 shadow-md grow text-gray-700 bg-gray-50 my-4">
+      <div class="h-80 bg-contain bg-no-repeat bg-center rounded-lg flex flex-col justify-between p-4 shadow-md grow text-gray-700 bg-gray-50 my-4" style={{ backgroundImage: "url('/images/bgsearch.png')" }}>
         <div className="flex justify-between items-center my-4">
           {texts.map((text,index)=>(
             <p className=" text-xl " key={index}>{text}</p>
@@ -25,9 +25,7 @@ function Banner({btnTitle,texts}) {
             {btnTitle}
           </button>
         </div>
-        <div className="h-52 ">
-         
-        </div>
+        
       </div>
     </>
   );
