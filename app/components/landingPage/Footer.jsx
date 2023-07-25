@@ -3,8 +3,8 @@ import { AiOutlineInstagram, AiOutlineLinkedin } from "react-icons/ai";
 import { BsTelegram } from "react-icons/bs";
 function Footer() {
   return (
-    <div className="rounded-lg  p-4 shadow-md text-gray-700 bg-gray-50 mt-6  ">
-      <div className="flex justify-center py-4">
+    <div className="rounded-lg   shadow-md text-gray-700 bg-gray-50 mt-6  ">
+      <div className="p-4 flex justify-center py-6 bg-[#2C4875] text-[#FFC14C] rounded-t-xl">
         <div className="">
           <p className="">ما را در شبکه های اجتماعی دنبال کنید.</p>
           <div className="flex items-center justify-center gap-6 py-4 border-b border-gray-400">
@@ -14,7 +14,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-4 mt-4">
+      <div className="p-4 grid grid-cols-3 gap-4 pt-6 bg-[#C7D4EA]">
         <ItemListComponent
           title="کارجو"
           Items={["کارآموزی", "فرصت های شغلی", "رزومه ساز", "آکادمی"]}
@@ -28,7 +28,7 @@ function Footer() {
           Items={["درباره ما", "ارتباط با ما", "قوانین و مقرارت"]}
         />
       </div>
-      <div className="pt-4 text-gray-700 flex justify-center">
+      <div className="py-4 text-gray-700 bg-[#C7D4EA] flex justify-center">
         <p className="text-sm font-bold">تمامی حقوق محفوظ</p>
       </div>
     </div>
