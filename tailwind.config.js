@@ -9,7 +9,8 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        bgBtn:'#FFD688'
+        bgBtn:'#FFD688',
+        colorTitle:'#2C4875'
       }
     },
   },

@@ -1,11 +1,11 @@
 import React from 'react'
 import { AiOutlineDown } from "react-icons/ai";
-import { BsBookmark } from "react-icons/bs";
+import { CiBookmarkCheck } from "react-icons/ci";
 
 function NewJobs() {
   return (
-    <div class="rounded-lg relative flex flex-col justify-between p-4 shadow-md grow text-gray-700 bg-gray-50 my-4 max-h-[550px] overflow-hidden">
-      <p className="font-black mb-6">جدیدترین فرصت های شغلی</p>
+    <div class="rounded-lg relative flex flex-col justify-between p-4 border border-[#2C4875] shadow-md grow text-gray-700 bg-gray-50 my-4 max-h-[550px] overflow-hidden">
+      <p className="font-black mb-6 text-colorTitle border-b pb-4 border-colorTitle" >جدیدترین آگهی های شغلی </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1].map((item,index)=>(
 
@@ -32,11 +32,11 @@ export default NewJobs
 function AdsCard({title}) {
   return (
     <>
-      <div class="rounded-lg flex flex-col justify-between p-4 shadow-md grow text-gray-700 bg-gray-50 ">
+      <div class="border border-black rounded-lg flex flex-col justify-between p-8 shadow-md grow text-gray-700 bg-gray-50 ">
         <div className="flex justify-between mb-8">
-          <p className="p-2 text-xl">{title}</p>
-          <BsBookmark
-              size={25}
+          <p className="p-2  font-bold text-gray-900">{title}</p>
+          <CiBookmarkCheck
+              size={30}
               className=' cursor-pointer hover:scale-105'
               color=""
               
