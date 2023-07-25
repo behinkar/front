@@ -16,7 +16,7 @@ export default AdsBanners;
 function Banner({btnTitle,texts,imgUrl,ExtraClass}) {
   return (
     <>
-      <div class={`${ExtraClass??''}  h-80 bg-contain bg-no-repeat bg-center rounded-lg flex flex-col justify-between p-4 shadow-md grow text-gray-700 bg-gray-50 my-4`} style={{ backgroundImage: `url('${imgUrl}')` }}>
+      <div class={`${ExtraClass??''}  h-80 bg-contain bg-no-repeat bg-center rounded-lg flex flex-col justify-between p-4 shadow-md grow text-gray-700  my-4`} style={{ backgroundImage: `url('${imgUrl}')` }}>
         <div className="flex justify-between items-center my-4">
           {texts.map((text,index)=>(
             <p className=" text-xl " key={index}>{text}</p>
