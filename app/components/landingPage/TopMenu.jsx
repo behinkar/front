@@ -9,7 +9,7 @@ function TopMenu() {
         <Link href="/#">خانه</Link>
         <Link href="/#">فرصت های شغلی</Link>
         <Link href="/#">آکادمی</Link>
-        <Link href="/#">رزومه ساز</Link>
+        <Link href="/cv">رزومه ساز</Link>
         <Link href="/search">جستجو مشاغل</Link>
       </div>
       <div className="flex">
