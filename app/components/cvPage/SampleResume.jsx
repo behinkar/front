@@ -9,9 +9,9 @@ function SampleResume() {
           نمونه رزومه های ساخته شده در بهین کار
         </p>
       </div>
-      <div className="flex gap-8 m-8">
+      <div className="flex gap-8 m-8 mb-16">
         <Card name="میلاد حسنی" job="برنامه نویس" />
-        <div className="top-6 grow relative">
+        <div className="top-8 grow relative">
           <Card name="امیرحسین زارع" job="برنامه نویس" />
         </div>
         <Card name="ایلان ماسک" job="برنامه نویس" />
