@@ -1,5 +1,5 @@
 import React from "react";
-import { TopMenu } from "../components/landingPage";
+import { Footer, TopMenu } from "../components/landingPage";
 import ProgressPart from "../components/buildcv/ProgressPart";
 import InfoCard from "../components/buildcv/InfoCard";
 import { MdContacts, MdWorkHistory, MdSchool } from "react-icons/md";
@@ -67,6 +67,7 @@ function page() {
           <ProgressPart />
         </div>
       </div>
+      <Footer />
     </>
   );
 }

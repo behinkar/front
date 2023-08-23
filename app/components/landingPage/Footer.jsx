@@ -9,8 +9,8 @@ function Footer() {
           <p className="">ما را در شبکه های اجتماعی دنبال کنید.</p>
           <div className="flex items-center justify-center gap-6 py-4 border-b border-gray-400">
             <AiOutlineInstagram size={25} className=" cursor-pointer" />
-            <BsTelegram size={25}  className="cursor-pointer"/>
-            <AiOutlineLinkedin size={25}  className="cursor-pointer"/>
+            <BsTelegram size={25} className="cursor-pointer" />
+            <AiOutlineLinkedin size={25} className="cursor-pointer" />
           </div>
         </div>
       </div>
@@ -21,7 +21,12 @@ function Footer() {
         />
         <ItemListComponent
           title="کارفرما"
-          Items={["ثبت آگهی", "استخدام تضمینی"]}
+          Items={[
+            "ثبت آگهی",
+            "استخدام تضمینی",
+            "استخدام از آکادمی",
+            "تعرفه ها",
+          ]}
         />
         <ItemListComponent
           title="بهین کار"
@@ -37,16 +42,21 @@ function Footer() {
 
 export default Footer;
 
-function ItemListComponent({ title,Items }) {
+function ItemListComponent({ title, Items }) {
   return (
     <>
       <div className="flex flex-col items-center ">
         <p className="font-bold pb-2  text-xl">{title}</p>
         <div className="w-24 h-0.5 bg-gray-800"></div>
         <div className="mt-2">
-        {Items.map((item,index)=>(
-          <p key={index} className="my-3 text-center cursor-pointer hover:font-bold">{item}</p>
-        ))}
+          {Items.map((item, index) => (
+            <p
+              key={index}
+              className="my-3 text-center cursor-pointer hover:font-bold"
+            >
+              {item}
+            </p>
+          ))}
         </div>
       </div>
     </>
