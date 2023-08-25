@@ -9,6 +9,7 @@ import { GiEarthAfricaEurope } from "react-icons/gi";
 import SocialCard from "../components/buildcv/SocialCard";
 import InputApp from "../components/share/InputApp";
 import AppBtn from "../components/share/AppBtn";
+import InputAreaApp from "../components/share/InputAreaApp";
 
 const data = [
   {
@@ -61,27 +62,33 @@ function page() {
               <FaUserTie size={25} />
               <span className=" font-bold">اطلاعات فردی</span>
             </div>
-            <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-9 px-6">
+            <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 px-6">
               <div className="flex  items-center gap-4 ">
                 <div className="w-20 h-20 bg-gray-300  rounded-full"></div>
                 <InputApp name="نام *" />
               </div>
               <InputApp name="نام خانوادگی *" />
               {/* part2 */}
-              <div className="flex  items-center ">
-                <AppBtn label="آپلود عکس" />
+              <div className="flex  items-center  ">
+                <AppBtn className="px-2 rounded-md ml-5" label="آپلود عکس" />
                 <InputApp name="جنسیت *" />
               </div>
               <InputApp name="وضعیت تاهل  *" />
+            </div>
+            <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 px-6">
               {/* part3 */}
-              <InputApp name="نام خانوادگی *" />
-              <InputApp name="نام خانوادگی *" />
-              <InputApp name="نام خانوادگی *" />
-              <InputApp name="نام خانوادگی *" />
-              <InputApp name="نام خانوادگی *" />
-              <InputApp name="نام خانوادگی *" />
-              <InputApp name="نام خانوادگی *" />
-              <InputApp name="نام خانوادگی *" />
+              <InputApp name="وضعیت خدمت*" />
+              <InputApp name=" وضعیت شغل فعلی *" />
+              <InputApp name="سال تولد  *" />
+              <InputApp name=" تخصص *" />
+              <InputApp name=" تلفن همراه *" />
+              <InputApp name=" ایمیل   *" />
+              <InputApp name=" استان *" />
+              <InputApp name=" شهرستان *" />
+            </div>
+            <div className="mt-8 grid grid-cols-1 px-6">
+              {/* part3 */}
+              <InputAreaApp name=" آدرس محل سکونت" />
             </div>
           </div>
 
