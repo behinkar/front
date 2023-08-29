@@ -145,8 +145,10 @@ function page() {
           ))}
           <SocialCard />
         </div>
-        <div className=" h-full border border-colorTitle rounded p-4">
-          <ProgressPart />
+        <div className="h-full ">
+          <div className=" border border-colorTitle rounded p-4">
+            <ProgressPart />
+          </div>
         </div>
       </div>
       <div className="grid grid-cols-2 gap-6 px-4 py-6">
