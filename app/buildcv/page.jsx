@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Footer, TopMenu } from "../components/landingPage";
 import ProgressPart from "../components/buildcv/ProgressPart";
@@ -10,6 +11,7 @@ import SocialCard from "../components/buildcv/SocialCard";
 import InputApp from "../components/share/InputApp";
 import AppBtn from "../components/share/AppBtn";
 import InputAreaApp from "../components/share/InputAreaApp";
+import AppSelect from "../components/share/AppSelect";
 
 const data = [
   {
@@ -51,6 +53,27 @@ const data = [
     icon: <GiEarthAfricaEurope size={30} className="text-colorTitle" />,
   },
 ];
+const dataForSelect = {
+  gender: [
+    { value: "men", label: "مرد" },
+    { value: "women", label: "زن" },
+  ],
+  MaritalStatus: [
+    { value: "married", label: "متاهل" },
+    { value: "single", label: "مجرد" },
+  ],
+  soliderStatus: [
+    { value: "1", label: "پایان خدمت" },
+    { value: "2", label: "معافیت دایم" },
+    { value: "3", label: "معافیت تحصیلی" },
+    { value: "4", label: "در حال انجام" },
+    { value: "5", label: "مشمول" },
+  ],
+  JobStatus: [
+    { value: "1", label: "جویای کار" },
+    { value: "2", label: " به دنبال شغل بهتر" },
+  ],
+};
 function page() {
   return (
     <>
@@ -70,15 +93,36 @@ function page() {
               <InputApp name="نام خانوادگی *" />
               {/* part2 */}
               <div className="flex  items-center  ">
-                <AppBtn className="px-2 rounded-md ml-5" label="آپلود عکس" />
-                <InputApp name="جنسیت *" />
+                <AppBtn
+                  className="px-2 rounded-md  inline-block whitespace-nowrap  ml-5"
+                  label="آپلود عکس"
+                />
+                <AppSelect
+                  placeholder="*جنسیت"
+                  name="gender"
+                  options={dataForSelect.gender}
+                />
               </div>
-              <InputApp name="وضعیت تاهل  *" />
+
+              <AppSelect
+                className="my-auto"
+                placeholder="وضعیت تاهل  *"
+                name="MaritalStatus"
+                options={dataForSelect.MaritalStatus}
+              />
             </div>
             <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 px-6">
               {/* part3 */}
-              <InputApp name="وضعیت خدمت*" />
-              <InputApp name=" وضعیت شغل فعلی *" />
+              <AppSelect
+                placeholder="وضعیت خدمت*"
+                name="soliderStatus"
+                options={dataForSelect.soliderStatus}
+              />
+              <AppSelect
+                placeholder="وضعیت شغل فعلی *"
+                name="JobStatus"
+                options={dataForSelect.JobStatus}
+              />
               <InputApp name="سال تولد  *" />
               <InputApp name=" تخصص *" />
               <InputApp name=" تلفن همراه *" />
@@ -104,6 +148,10 @@ function page() {
         <div className=" h-full border border-colorTitle rounded p-4">
           <ProgressPart />
         </div>
+      </div>
+      <div className="grid grid-cols-2 gap-6 px-4 py-6">
+        <AppBtn className="px-2 rounded-md ml-5" label=" ذخیره" />
+        <AppBtn className="px-2 rounded-md ml-5" label="دریافت رزومه " />
       </div>
       <Footer />
     </>
