@@ -5,6 +5,7 @@ import { Footer, JobSuggestion } from "../components/landingPage";
 import AdsPart from "../components/employer/AdsPart";
 import ServicePart from "../components/employer/ServicePart";
 import InfoPart from "../components/employer/InfoPart";
+import MoreInfoPart from "../components/employer/MoreInfoPart";
 
 function PageEmployer() {
   return (
@@ -18,6 +19,7 @@ function PageEmployer() {
         </p>
         <ServicePart />
         <InfoPart />
+        <MoreInfoPart />
         <Footer />
       </div>
     </>
