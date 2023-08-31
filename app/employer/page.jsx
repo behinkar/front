@@ -6,6 +6,7 @@ import AdsPart from "../components/employer/AdsPart";
 import ServicePart from "../components/employer/ServicePart";
 import InfoPart from "../components/employer/InfoPart";
 import MoreInfoPart from "../components/employer/MoreInfoPart";
+import OperationCardEmployer from "../components/employer/OperationCard";
 
 function PageEmployer() {
   return (
@@ -20,6 +21,8 @@ function PageEmployer() {
         <ServicePart />
         <InfoPart />
         <MoreInfoPart />
+        <OperationCardEmployer />
+
         <Footer />
       </div>
     </>
