@@ -1,8 +1,10 @@
 import React from "react";
 
 import TopMenuEmployer from "../components/share/TopMenuEmployer";
-import { JobSuggestion } from "../components/landingPage";
+import { Footer, JobSuggestion } from "../components/landingPage";
 import AdsPart from "../components/employer/AdsPart";
+import ServicePart from "../components/employer/ServicePart";
+
 
 function PageEmployer() {
   return (
@@ -14,6 +16,8 @@ function PageEmployer() {
         <p className=" font-bold text-colorTitle text-center text-3xl my-20">
           خدمات اختصاصی برای کارفرمایان
         </p>
+        <ServicePart />
+        <Footer />
       </div>
     </>
   );
