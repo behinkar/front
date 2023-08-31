@@ -11,6 +11,9 @@ function PageEmployer() {
         <TopMenuEmployer />
         <AdsPart />
         <JobSuggestion />
+        <p className=" font-bold text-colorTitle text-center text-3xl my-20">
+          خدمات اختصاصی برای کارفرمایان
+        </p>
       </div>
     </>
   );
