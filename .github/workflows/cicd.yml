@@ -33,7 +33,7 @@ jobs:
           target: final
           push: true
           tags: |
-            $REGISTRY/$OWNER/$IMAGE_NAME:$(date +%s)
+            ghcr.io/behinkar/front:latest
           build-args: |
             ENVIRONMENT=production
   deploy:
