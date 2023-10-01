@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: docker login
         run: |
-          echo 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 | docker login ghcr.io -u amirioelmos --password-stdin
+          echo ${{ secrets.MY_TOKEN }} | docker login ghcr.io -u amirioelmos --password-stdin
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag ghcr.io/behinkar/front:latest
       - name: Docker Push
