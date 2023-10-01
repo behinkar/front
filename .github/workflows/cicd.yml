@@ -8,10 +8,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: docker login
         run: |
-            echo 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 | docker login ghcr.io -u amirioelmos --password-stdin
-      - uses: actions/checkout@v2
+          echo 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 | docker login ghcr.io -u amirioelmos --password-stdin
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag ghcr.io/behinkar/front:latest
       - name: Docker Push
