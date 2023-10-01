@@ -24,7 +24,7 @@ jobs:
         uses: fifsky/ssh-action@master
         with:
           command: |
-            cd /root/frontend
+            cd /root/front
             docker compose pull web
             docker compose up -d
           host: ${{ secrets.HOST }}
