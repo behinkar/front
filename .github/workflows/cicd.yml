@@ -9,33 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # - name: docker login
-      #   run: |
-      #     echo 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 | docker login ghcr.io -u amirioelmos --password-stdin
-      - name: Login to GitHub Container registry
-        uses: docker/login-action@v1
-        env:
-          GITHUB_USER: ${{ github.actor }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          registry: ghcr.io
-          username: $GITHUB_USER
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and Push Docker Image
-        env:
-          REGISTRY: ghcr.io
-          OWNER: behinkar
-          IMAGE_NAME: ${{ github.repository }}
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./Dockerfile
-          # target: final
-          push: true
-          tags: |
-            ghcr.io/behinkar/front:latest
-          # build-args: |
-            # ENVIRONMENT=production
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag amiriodocker/noron:behinkar-fornt-latest
+      - name: Docker Push
+        run: docker push amiriodocker/noron:behinkar-fornt-latest
   deploy:
     runs-on: ubuntu-latest
     needs: build
