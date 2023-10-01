@@ -8,6 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: docker login
+        run: |
+           echo amirio145632 | docker login -u amiriodocker --password-stdin
       - uses: actions/checkout@v2
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag amiriodocker/noron:behinkar-fornt-latest
