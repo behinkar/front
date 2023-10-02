@@ -6,8 +6,9 @@ import { RiSearch2Line } from "react-icons/ri";
 
 function SearchPart() {
   return (
-    <div className="bg-[#b2c4e2]/[.46] min-h-[500px] flex flex-col rounded-b-3xl   bg-contain bg-no-repeat bg-center "
-    style={{ backgroundImage: "url('/images/bgsearch.png')" }}
+    <div
+      className="bg-[#b2c4e2]/[.46] min-h-[500px] flex flex-col rounded-b-3xl   bg-contain bg-no-repeat bg-center "
+      style={{ backgroundImage: "url('/images/bgsearch.png')" }}
     >
       <p className="text-center py-6 font-bold text-xl text-gray-600">
         بهین کار سامانه کاریابی انلاین در جنوب شرق ایران
@@ -19,7 +20,7 @@ function SearchPart() {
           placeholder="عنوان شغلی ..."
         />
         <Select
-          className="w-64"
+          className="w-64 hidden md:block"
           classNamePrefix="select"
           isClearable={true}
           isRtl={true}
@@ -33,7 +34,7 @@ function SearchPart() {
           ]}
         />
         <Select
-          className="w-64 "
+          className="w-64 hidden md:block "
           classNamePrefix="select"
           isClearable={true}
           isRtl={true}

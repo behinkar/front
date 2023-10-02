@@ -16,12 +16,21 @@ function JobSuggestion() {
       <div className="relative overflow-hidden">
         <Swiper
           dir="rtl"
-          slidesPerView={4}
+          slidesPerView={2}
           spaceBetween={5}
           pagination={{
             clickable: true,
           }}
-          modules={[ Autoplay]}
+          modules={[Autoplay]}
+          breakpoints={{
+            768: {
+              slidesPerView: 2,
+            },
+            992: {
+              slidesPerView: 4,
+            },
+            // Add more breakpoints and slidePerView settings as needed
+          }}
           className="mySwiper"
           loop={true} // set the loop prop to true
           autoplay={{
@@ -46,11 +55,14 @@ function JobSuggestion() {
           </SwiperSlide>
           <SwiperSlide>
             <div className="w-44 h-44 rounded-xl border-gray-600 border-2"></div>
-          </SwiperSlide><SwiperSlide>
+          </SwiperSlide>
+          <SwiperSlide>
             <div className="w-44 h-44 rounded-xl border-gray-600 border-2"></div>
-          </SwiperSlide><SwiperSlide>
+          </SwiperSlide>
+          <SwiperSlide>
             <div className="w-44 h-44 rounded-xl border-gray-600 border-2"></div>
-          </SwiperSlide><SwiperSlide>
+          </SwiperSlide>
+          <SwiperSlide>
             <div className="w-44 h-44 rounded-xl border-gray-600 border-2"></div>
           </SwiperSlide>
         </Swiper>
