@@ -18,12 +18,12 @@ function RegisterPage() {
       <Head>
         <title>ثبت نام کارفرما</title>
       </Head>
-      <div className="grid grid-cols-[2fr_3fr] bg-gray-300">
+      <div className="md:grid md:grid-cols-[2fr_3fr] bg-gray-300">
         <div
-          className=" bg-contain bg-no-repeat bg-right"
+          className="hidden md:block bg-cover bg-no-repeat bg-right"
           style={{ backgroundImage: `url('/images/bgLogin.png')` }}
         ></div>
-        <div className=" min-h-screen flex flex-col relative">
+        <div className=" min-h-screen flex flex-col  relative">
           <div className="absolute left-0 right-0">
             <div className="flex  justify-between items-center p-4 text-gray-600 text-sm">
               <div className="font-black text-colorTitle text-xl">بهین کار</div>

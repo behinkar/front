@@ -12,17 +12,17 @@ function LoginPage() {
   }
   return (
     <div className="">
-      <div className="grid grid-cols-[2fr_3fr] bg-gray-300">
+      <div className="md:grid md:grid-cols-[2fr_3fr] bg-gray-300">
         <div
-          className=" bg-contain bg-no-repeat bg-right"
+          className="hidden md:block bg-cover bg-no-repeat bg-right"
           style={{ backgroundImage: `url('/images/bgLogin.png')` }}
         ></div>
 
         <div className="min-h-screen relative bg-gray-300  flex flex-col ">
-        <div className="absolute left-0 right-0">
+          <div className="absolute left-0 right-0">
             <div className="flex  justify-between items-center p-4 text-gray-600 text-sm">
               <div className="font-black text-colorTitle text-xl">بهین کار</div>
-              {whichUser!= "employer" && (
+              {whichUser != "employer" && (
                 <span className="">
                   <span className="">کارفرما هستید؟ </span>
                   <span
@@ -31,7 +31,7 @@ function LoginPage() {
                     }
                     className=" ml-2 mr-1 hover:font-bold cursor-pointer text-colorTitle"
                   >
-                     ورود
+                    ورود
                   </span>
                 </span>
               )}
@@ -56,7 +56,7 @@ function LoginPage() {
                 <p className="text-xs pr-3 pb-3 text-gray-500 ">
                   <span className="">حساب کارفرمایی ندارید؟</span>
                   <span
-                    onClick={()=>handleRouteClick('/register?w=employer')}
+                    onClick={() => handleRouteClick("/register?w=employer")}
                     className=" cursor-pointer hover:font-bold mr-1"
                   >
                     ثبت نام کارفرما
