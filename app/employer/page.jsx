@@ -11,11 +11,11 @@ import OperationCardEmployer from "../components/employer/OperationCard";
 function PageEmployer() {
   return (
     <>
-      <div className="">
+      <div className="mx-2">
         <TopMenuEmployer />
         <AdsPart />
         <JobSuggestion />
-        <p className=" font-bold text-colorTitle text-center text-3xl my-20">
+        <p className="text-xl md:text-3xl font-bold text-colorTitle text-center  my-20">
           خدمات اختصاصی برای کارفرمایان
         </p>
         <ServicePart />

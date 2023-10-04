@@ -13,9 +13,9 @@ const data = [
 function MoreInfoPart() {
   return (
     <>
-      <div className="grid grid-cols-2 gap-6 my-20 max-w-6xl mx-auto ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-20 max-w-6xl mx-auto ">
         <div className="">
-          <p className="text-colorTitle font-bold text-2xl mb-16">
+          <p className="text-colorTitle font-bold text-xl md:text-2xl mb-16">
             آگهی های شغلی در کجا منتشر میشوند؟
           </p>
           <div className="h-full flex flex-col gap-16">
@@ -24,7 +24,7 @@ function MoreInfoPart() {
             ))}
           </div>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="hidden md:flex justify-center items-center">
           <Image src={chairImage} alt="" />
         </div>
       </div>
@@ -39,7 +39,7 @@ function Title({ data }) {
     <>
       <div className="flex gap-4 pr-8 items-center mt-8 ">
         <AiFillCaretLeft size={25} color="#FFA702" />
-        <p className="text-[#567EBF] font-bold  text-xl">{data}</p>
+        <p className="text-[#567EBF] font-bold text-base  md:text-xl">{data}</p>
       </div>
     </>
   );

@@ -5,7 +5,7 @@ import { HiOutlineHome, HiOutlineLocationMarker } from "react-icons/hi";
 
 function ResultPart() {
   return (
-    <div className="flex gap-5 flex-col justify-center m-4 border border-colorTitle p-6">
+    <div className="flex gap-5 flex-col justify-center m-4 border border-colorTitle p-2 md:p-6">
       {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((el, i) => (
         <Card key={i} />
       ))}
@@ -19,7 +19,7 @@ function Card() {
   return (
     <div className="p-4 py-6 flex justify-between border rounded-md border-blue-400">
       <div className="flex items-center gap-5">
-        <div className="w-24 h-24 bg-blue-400 rounded-md"></div>
+        <div className="hidden md:block    md:w-24 md:h-24 bg-blue-400 rounded-md"></div>
         <div className="text-gray-800 flex flex-col gap-4">
           <p className="">عنوان شغلی</p>
           <div className="flex items-center gap-4">
@@ -57,7 +57,7 @@ function Card() {
           />
         </div>
         <div className="">
-          <button className="inline-block  bg-bgBtn text-sm hover:scale-105 active:scale-95 text-gray-800 font-bold py-3 px-8 rounded-full focus:outline-none focus:shadow-outline transition duration-300">
+          <button className="inline-block  bg-bgBtn text-sm hover:scale-105 active:scale-95 text-gray-800 font-bold py-3 md:px-8 px-3 rounded-full focus:outline-none focus:shadow-outline transition duration-300">
             ارسال رزومه
           </button>
         </div>

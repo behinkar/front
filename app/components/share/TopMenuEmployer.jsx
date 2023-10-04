@@ -5,7 +5,7 @@ import { TiUser } from "react-icons/ti";
 function TopMenuEmployer() {
   return (
     <div className="flex p-6 px-8 justify-between">
-      <div className="flex items-center gap-6">
+      <div className=" items-center gap-6 hidden md:flex">
         <Link href="/#">خانه</Link>
         <Link href="/#">ثبت رایگان آگهی</Link>
         <Link href="/#">استخدام از آکادمی</Link>

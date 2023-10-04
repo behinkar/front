@@ -8,7 +8,7 @@ import AppBtn from "../share/AppBtn";
 function AdsPart() {
   return (
     <div
-      className=" min-h-[500px] flex flex-col rounded-b-3xl   bg-contain bg-no-repeat bg-center "
+      className=" md:min-h-[500px] flex flex-col rounded-b-3xl  bg-cover  bg-no-repeat bg-center "
       style={{ backgroundImage: "url('/images/bgEmployer.png')" }}
     >
       <AddAds />

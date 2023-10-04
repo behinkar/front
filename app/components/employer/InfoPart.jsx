@@ -35,7 +35,7 @@ function Card({ data }) {
     <>
       <div className="text-colorTitle font-bold ">
         <p className="py-6 text-center font-bold text-xl">{data.num}</p>
-        <p className=" text-center ">{data.title}</p>
+        <p className=" text-sm md:text-base text-center ">{data.title}</p>
       </div>
     </>
   );
