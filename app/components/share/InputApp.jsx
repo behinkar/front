@@ -1,8 +1,10 @@
 import React from "react";
-
-function InputApp({ name }) {
+import { twMerge } from "tailwind-merge";
+function InputApp({ name,className }) {
   return (
-    <div className="grow flex items-center">
+    <div className={twMerge("grow flex items-center ",
+    className
+    )}>
       <input
         type="text"
         placeholder={name}
