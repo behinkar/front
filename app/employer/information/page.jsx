@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Footer } from "../components/landingPage";
+import { Footer } from "../../components/landingPage";
 
 import { MdContacts, MdWorkHistory, MdSchool } from "react-icons/md";
 import { FaBook, FaMedal, FaUserTie } from "react-icons/fa";
@@ -8,12 +8,12 @@ import { FiMonitor } from "react-icons/fi";
 import { BsPeopleFill } from "react-icons/bs";
 
 import { GiEarthAfricaEurope } from "react-icons/gi";
-import SocialCard from "../components/buildcv/SocialCard";
-import InputApp from "../components/share/InputApp";
-import AppBtn from "../components/share/AppBtn";
-import InputAreaApp from "../components/share/InputAreaApp";
-import AppSelect from "../components/share/AppSelect";
-import TopMenuEmployer from "../components/share/TopMenuEmployer";
+import SocialCard from "../../components/buildcv/SocialCard";
+import InputApp from "../../components/share/InputApp";
+import AppBtn from "../../components/share/AppBtn";
+import InputAreaApp from "../../components/share/InputAreaApp";
+import AppSelect from "../../components/share/AppSelect";
+import TopMenuEmployer from "../../components/share/TopMenuEmployer";
 
 const data = [
   {
