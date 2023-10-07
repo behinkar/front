@@ -2,19 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
 
 body {
@@ -59,4 +46,22 @@ body {
   background-color: rgba(255, 255, 255, 0.31);
   border-radius: 12px;
   border: 1px solid rgba(209, 213, 219, 0.3);
+}
+
+@layer components {
+  .input-class {
+    @apply w-full border rounded-md py-2 px-4 text-gray-700 leading-tight
+  }
+
+  .input-class:focus {
+    @apply shadow-md outline-none border-blue-500
+  }
+
+  .label {
+    @apply block text-gray-600 text-sm mb-2
+  }
+
+  .error-label {
+    @apply text-xs font-black text-red-500 pt-2 inline-block
+  }
 }

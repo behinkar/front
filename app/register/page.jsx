@@ -4,7 +4,19 @@ import InputApp from "../components/Input/InputApp";
 import Head from "next/head";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import PhoneNumberInput from "../components/Input/PhoneNumberInput";
+import { useForm, Controller } from "react-hook-form";
+import { Button, Input } from "@material-tailwind/react";
+import filled from "@material-tailwind/react/theme/components/timeline/timelineIconColors/filled";
+
+import classNames from "classnames";
+
 function RegisterPage() {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   // const [whichUser, setWhichUser] = useState('jobSeeker')
   const router = useRouter();
   const url = useSearchParams();
@@ -13,6 +25,11 @@ function RegisterPage() {
   function handleNavigationClick(url) {
     router.push(url);
   }
+
+  function onSubmit(data) {
+    console.log(data);
+  }
+
   return (
     <div>
       <Head>
@@ -56,15 +73,50 @@ function RegisterPage() {
               </p>
               <div className=" rounded-lg shadow-lg bg-gray-50  ">
                 <div className="p-6 pb-0  min-w-[300px]">
-                  <InputApp label="ایمیل" />
-                  <InputApp label="رمز" />
-                  <InputApp label="تکرار رمز" />
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <label className="label">شماره همراه</label>
 
-                  <div className="flex justify-center pb-5 ">
-                    <button className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline transition duration-300">
-                      ثبت نام
-                    </button>
-                  </div>
+                    <Controller
+                      name="phoneNumber"
+                      control={control}
+                      rules={{
+                        required: "شماره موبایل الزامی است",
+                        pattern: {
+                          value: /^09\d{9}$/,
+                          message: "شماره موبایل صحیح نمی باشد",
+                        },
+                      }}
+                      render={({ field }) => (
+                        <input
+                          className={`input-class ${classNames({
+                            "focus:border-red-400    border-red-400 border-2":
+                              errors?.phoneNumber?.message,
+                          })}`}
+                          type="tel"
+                          maxLength="11"
+                          placeholder="09139939426"
+                          {...field}
+                        />
+                      )}
+                    />
+                    {Boolean(errors?.phoneNumber?.message) && (
+                      <span className="error-label">
+                        {errors.phoneNumber.message}{" "}
+                      </span>
+                    )}
+
+                    <div className="flex justify-center pb-5  mt-6">
+                      <Button type="submit" className="bg-[#567EBF]" size="lg">
+                        دریافت کد فعال سازی
+                      </Button>
+                      {/* <button
+                        type="submit"
+                        className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline transition duration-300"
+                      >
+                        دریافت کد فعال سازی
+                      </button> */}
+                    </div>
+                  </form>
 
                   <p className="my-4 p-2 text-sm  text-gray-600">
                     حساب کاربری دارید؟
