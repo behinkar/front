@@ -11,16 +11,16 @@ import axios from "axios";
 
 function RegisterPage() {
   const {
+    register,
     control,
     handleSubmit,
     formState: { errors },
   } = useForm();
- 
+
   const router = useRouter();
-  const [phoneNumber, setPhoneNumber] = useState("");
+
   const url = useSearchParams();
   const whichUser = url.get("w");
- 
 
   function handleNavigationClick(url) {
     router.push(url);
@@ -89,96 +89,46 @@ function RegisterPage() {
                 <div className="p-6 pb-0  min-w-[300px]">
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <label className="label">شماره همراه</label>
+                    <input
+                      className={`input-class ${classNames({
+                        "focus:border-red-400    border-red-400 border-2":
+                          errors?.phone_number?.message,
+                      })}`}
+                      type="tel"
+                      {...register("phone_number", {
+                        required: "شماره موبایل الزامی است.",
+                        pattern: {
+                          value: /^09\d{9}$/,
+                          message: "شماره موبایل صحیح نمی باشد",
+                        },
+                      })}
+                      maxLength="11"
+                      placeholder="09139939426"
+                    />
+                    {Boolean(errors?.phone_number?.message) && (
+                      <span className="error-label">
+                        {errors.phone_number.message}{" "}
+                      </span>
+                    )}
 
-                    <Controller
-                      name="phoneNumber"
-                      control={control}
-                      rules={{
-                        required: "شماره موبایل الزامی است",
-                        pattern: {
-                          value: /^09\d{9}$/,
-                          message: "شماره موبایل صحیح نمی باشد",
-                        },
-                      }}
-                      render={({ field }) => (
-                        <input
-                          className={`input-class ${classNames({
-                            "focus:border-red-400    border-red-400 border-2":
-                              errors?.phoneNumber?.message,
-                          })}`}
-                          type="tel"
-                          value={phoneNumber}
-                          maxLength="11"
-                          placeholder="09139939426"
-                          {...field}
-                        />
-                      )}
-                    />
-                    {Boolean(errors?.phoneNumber?.message) && (
-                      <span className="error-label">
-                        {errors.phoneNumber.message}{" "}
-                      </span>
-                    )}
                     <label className="label mt-4">رمز عبور </label>
-                    <Controller
-                      name="phoneNumber"
-                      control={control}
-                      rules={{
-                        required: "شماره موبایل الزامی است",
-                        pattern: {
-                          value: /^09\d{9}$/,
-                          message: "شماره موبایل صحیح نمی باشد",
-                        },
-                      }}
-                      render={({ field }) => (
-                        <input
-                          className={`input-class ${classNames({
-                            "focus:border-red-400    border-red-400 border-2":
-                              errors?.phoneNumber?.message,
-                          })}`}
-                          type="tel"
-                          value={phoneNumber}
-                          maxLength="11"
-                          placeholder="09139939426"
-                          {...field}
-                        />
-                      )}
+                    <input
+                      className={`input-class ${classNames({
+                        "focus:border-red-400    border-red-400 border-2":
+                          errors?.phoneNumber?.message,
+                      })}`}
+                      type="tel"
+                      {...register("password1")}
                     />
-                    {Boolean(errors?.phoneNumber?.message) && (
-                      <span className="error-label">
-                        {errors.phoneNumber.message}{" "}
-                      </span>
-                    )}
                     <label className="label mt-4">تکرار رمز عبور </label>
-                    <Controller
-                      name="phoneNumber"
-                      control={control}
-                      rules={{
-                        required: "شماره موبایل الزامی است",
-                        pattern: {
-                          value: /^09\d{9}$/,
-                          message: "شماره موبایل صحیح نمی باشد",
-                        },
-                      }}
-                      render={({ field }) => (
-                        <input
-                          className={`input-class ${classNames({
-                            "focus:border-red-400    border-red-400 border-2":
-                              errors?.phoneNumber?.message,
-                          })}`}
-                          type="tel"
-                          value={phoneNumber}
-                          maxLength="11"
-                          placeholder="09139939426"
-                          {...field}
-                        />
-                      )}
+                    <input
+                      className={`input-class ${classNames({
+                        "focus:border-red-400    border-red-400 border-2":
+                          errors?.phoneNumber?.message,
+                      })}`}
+                      type="tel"
+                      {...register("password2")}
                     />
-                    {Boolean(errors?.phoneNumber?.message) && (
-                      <span className="error-label">
-                        {errors.phoneNumber.message}{" "}
-                      </span>
-                    )}
 
                     <div className="flex justify-center pb-5  mt-6">
                       <Button
