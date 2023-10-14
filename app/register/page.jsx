@@ -25,14 +25,12 @@ function RegisterPage() {
     router.push(url);
   }
 
-  async function callApi(values) {
+  async function callApi(value) {
+    console.log(value);
     const { data } = await axios.post(
-      "http://api.behinkar.ir/accounts/reggister/",
-      {
-        phone_number: "09139939426",
-        password1: "M254512m",
-        password2: "M254512m",
-      },
+      "https://api.behinkar.ir/accounts/reggister/",
+
+      value,
       {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json;charset=utf-8",
