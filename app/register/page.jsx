@@ -25,8 +25,8 @@ function RegisterPage() {
     router.push(url);
   }
 
-  function callApi(data) {
-    return axios.post(
+  async function callApi(values) {
+    const { data } = await axios.post(
       "http://api.behinkar.ir/accounts/reggister/",
       {
         phone_number: "09139939426",
@@ -38,6 +38,7 @@ function RegisterPage() {
         "Content-Type": "application/json;charset=utf-8",
       }
     );
+    return data;
   }
 
   return (
@@ -127,12 +128,7 @@ function RegisterPage() {
                     />
 
                     <div className="flex justify-center pb-5  mt-6">
-                      <Button
-                        type="submit"
-                        className="bg-[#567EBF]"
-                        size="lg"
-                        onClick={callApi}
-                      >
+                      <Button type="submit" className="bg-[#567EBF]" size="lg">
                         دریافت کد فعال سازی
                       </Button>
                     </div>
