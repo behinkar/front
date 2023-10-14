@@ -1,12 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useForm, Controller } from "react-hook-form";
 import { Button, Input } from "@material-tailwind/react";
 import classNames from "classnames";
-import { useQuery } from "@tanstack/react-query";
+
 import axios from "axios";
 
 function RegisterPage() {
@@ -15,12 +15,12 @@ function RegisterPage() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  // const [whichUser, setWhichUser] = useState('jobSeeker')
+ 
   const router = useRouter();
   const [phoneNumber, setPhoneNumber] = useState("");
   const url = useSearchParams();
   const whichUser = url.get("w");
-  // const { isLoading, error, data, refetch } = useQuery(["test"], callApi);
+ 
 
   function handleNavigationClick(url) {
     router.push(url);
