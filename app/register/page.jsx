@@ -1,15 +1,13 @@
 "use client";
-import React, { useState } from "react";
-import InputApp from "../components/Input/InputApp";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import PhoneNumberInput from "../components/Input/PhoneNumberInput";
 import { useForm, Controller } from "react-hook-form";
 import { Button, Input } from "@material-tailwind/react";
-import filled from "@material-tailwind/react/theme/components/timeline/timelineIconColors/filled";
-
 import classNames from "classnames";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 function RegisterPage() {
   const {
@@ -19,8 +17,10 @@ function RegisterPage() {
   } = useForm();
   // const [whichUser, setWhichUser] = useState('jobSeeker')
   const router = useRouter();
+  const [phoneNumber, setPhoneNumber] = useState("");
   const url = useSearchParams();
   const whichUser = url.get("w");
+  // const { isLoading, error, data, refetch } = useQuery(["test"], callApi);
 
   function handleNavigationClick(url) {
     router.push(url);
@@ -28,6 +28,20 @@ function RegisterPage() {
 
   function onSubmit(data) {
     console.log(data);
+  }
+  function callApi() {
+    return axios.post(
+      "http://api.behinkar.ir/accounts/reggister/",
+      {
+        phone_number: "09139939426",
+        password1: "M254512m",
+        password2: "M254512m",
+      },
+      {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json;charset=utf-8",
+      }
+    );
   }
 
   return (
@@ -93,6 +107,67 @@ function RegisterPage() {
                               errors?.phoneNumber?.message,
                           })}`}
                           type="tel"
+                          value={phoneNumber}
+                          maxLength="11"
+                          placeholder="09139939426"
+                          {...field}
+                        />
+                      )}
+                    />
+                    {Boolean(errors?.phoneNumber?.message) && (
+                      <span className="error-label">
+                        {errors.phoneNumber.message}{" "}
+                      </span>
+                    )}
+                    <label className="label mt-4">رمز عبور </label>
+                    <Controller
+                      name="phoneNumber"
+                      control={control}
+                      rules={{
+                        required: "شماره موبایل الزامی است",
+                        pattern: {
+                          value: /^09\d{9}$/,
+                          message: "شماره موبایل صحیح نمی باشد",
+                        },
+                      }}
+                      render={({ field }) => (
+                        <input
+                          className={`input-class ${classNames({
+                            "focus:border-red-400    border-red-400 border-2":
+                              errors?.phoneNumber?.message,
+                          })}`}
+                          type="tel"
+                          value={phoneNumber}
+                          maxLength="11"
+                          placeholder="09139939426"
+                          {...field}
+                        />
+                      )}
+                    />
+                    {Boolean(errors?.phoneNumber?.message) && (
+                      <span className="error-label">
+                        {errors.phoneNumber.message}{" "}
+                      </span>
+                    )}
+                    <label className="label mt-4">تکرار رمز عبور </label>
+                    <Controller
+                      name="phoneNumber"
+                      control={control}
+                      rules={{
+                        required: "شماره موبایل الزامی است",
+                        pattern: {
+                          value: /^09\d{9}$/,
+                          message: "شماره موبایل صحیح نمی باشد",
+                        },
+                      }}
+                      render={({ field }) => (
+                        <input
+                          className={`input-class ${classNames({
+                            "focus:border-red-400    border-red-400 border-2":
+                              errors?.phoneNumber?.message,
+                          })}`}
+                          type="tel"
+                          value={phoneNumber}
                           maxLength="11"
                           placeholder="09139939426"
                           {...field}
@@ -106,7 +181,12 @@ function RegisterPage() {
                     )}
 
                     <div className="flex justify-center pb-5  mt-6">
-                      <Button type="submit" className="bg-[#567EBF]" size="lg">
+                      <Button
+                        type="submit"
+                        className="bg-[#567EBF]"
+                        size="lg"
+                        onClick={() => callApi()}
+                      >
                         دریافت کد فعال سازی
                       </Button>
                       {/* <button
