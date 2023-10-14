@@ -4,7 +4,7 @@ import { AdsBanners, Footer, HeroHeader, JobSuggestion, NewJobs, TopMenu,SearchP
 export default function Home() {
   return (
     <>
-      <div class="min-h-screen   px-4">
+      <div className="min-h-screen   px-4">
         <TopMenu />
         {/* <HeroHeader /> */}
         <SearchPart/>

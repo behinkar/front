@@ -26,7 +26,7 @@ function Banner({ btnTitle, texts, imgUrl, ExtraClass }) {
   return (
     <>
       <div
-        class={`${
+        className={`${
           ExtraClass ?? ""
         }  h-80 bg-contain bg-no-repeat bg-center rounded-lg flex flex-col justify-between p-4 shadow-md grow text-gray-700  my-4`}
         style={{ backgroundImage: `url('${imgUrl}')` }}

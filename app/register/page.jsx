@@ -3,8 +3,8 @@ import React from "react";
 import Head from "next/head";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useForm, Controller } from "react-hook-form";
-import { Button, Input } from "@material-tailwind/react";
+import { useForm } from "react-hook-form";
+import { Button } from "@material-tailwind/react";
 import classNames from "classnames";
 
 import axios from "axios";
@@ -12,7 +12,6 @@ import axios from "axios";
 function RegisterPage() {
   const {
     register,
-    control,
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -26,10 +25,7 @@ function RegisterPage() {
     router.push(url);
   }
 
-  function onSubmit(data) {
-    console.log(data);
-  }
-  function callApi() {
+  function callApi(data) {
     return axios.post(
       "http://api.behinkar.ir/accounts/reggister/",
       {
@@ -87,7 +83,7 @@ function RegisterPage() {
               </p>
               <div className=" rounded-lg shadow-lg bg-gray-50  ">
                 <div className="p-6 pb-0  min-w-[300px]">
-                  <form onSubmit={handleSubmit(onSubmit)}>
+                  <form onSubmit={handleSubmit((data) => callApi(data))}>
                     <label className="label">شماره همراه</label>
                     <input
                       className={`input-class ${classNames({
@@ -135,16 +131,10 @@ function RegisterPage() {
                         type="submit"
                         className="bg-[#567EBF]"
                         size="lg"
-                        onClick={() => callApi()}
+                        onClick={callApi}
                       >
                         دریافت کد فعال سازی
                       </Button>
-                      {/* <button
-                        type="submit"
-                        className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline transition duration-300"
-                      >
-                        دریافت کد فعال سازی
-                      </button> */}
                     </div>
                   </form>
 

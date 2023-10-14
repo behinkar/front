@@ -1,13 +1,11 @@
 import React from "react";
 import { AiOutlineDown } from "react-icons/ai";
 import { CiBookmarkCheck } from "react-icons/ci";
-import { HiOutlineHome,HiOutlineLocationMarker } from "react-icons/hi";
-
-
+import { HiOutlineHome, HiOutlineLocationMarker } from "react-icons/hi";
 
 function NewJobs() {
   return (
-    <div class="rounded-lg relative flex flex-col justify-between p-4 border border-[#2C4875] shadow-md grow text-gray-700 bg-gray-50 my-4 max-h-[650px] overflow-hidden">
+    <div className="rounded-lg relative flex flex-col justify-between p-4 border border-[#2C4875] shadow-md grow text-gray-700 bg-gray-50 my-4 max-h-[650px] overflow-hidden">
       <p className="font-black mb-6 text-colorTitle border-b pb-4 border-colorTitle">
         جدیدترین آگهی های شغلی{" "}
       </p>
@@ -33,7 +31,7 @@ export default NewJobs;
 function AdsCard({ title }) {
   return (
     <>
-      <div class="border border-black rounded-lg flex flex-col justify-between p-8 shadow-md grow text-gray-700 bg-gray-50 ">
+      <div className="border border-black rounded-lg flex flex-col justify-between p-8 shadow-md grow text-gray-700 bg-gray-50 ">
         <div className="flex justify-between mb-8">
           <p className="p-2  font-bold text-gray-900">{title}</p>
           <CiBookmarkCheck
