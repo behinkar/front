@@ -1,5 +1,5 @@
 import "../public/fonts/font.css";
-import TanstackProvider from "./components/providers/TanstackProvider";
+// import TanstackProvider from "./components/providers/TanstackProvider";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -14,7 +14,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
       <body className={inter.className}>
-        <TanstackProvider>{children}</TanstackProvider>
+        {/* <TanstackProvider> */}
+        {children}
+        {/* </TanstackProvider> */}
       </body>
     </html>
   );
