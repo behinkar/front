@@ -26,7 +26,10 @@ function RegisterPage() {
   }
 
   async function callApi(value) {
-    console.log(value);
+    if (value.phone_number === "") {
+      return;
+    }
+
     const { data } = await axios.post(
       "https://api.behinkar.ir/accounts/reggister/",
 
@@ -82,7 +85,7 @@ function RegisterPage() {
               </p>
               <div className=" rounded-lg shadow-lg bg-gray-50  ">
                 <div className="p-6 pb-0  min-w-[300px]">
-                  <form onSubmit={handleSubmit( callApi)}>
+                  <form onSubmit={handleSubmit(callApi)}>
                     <label className="label">شماره همراه</label>
                     <input
                       className={`input-class ${classNames({
