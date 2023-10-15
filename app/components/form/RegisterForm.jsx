@@ -9,20 +9,21 @@ function RegisterForm() {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm();
-  const onSubmit = (value) => {
+  const onSubmit = async (value) => {
     console.log(value);
-    // if (value.phone_number === "") {
-    //   return;
-    // }
-    // const { data } = await axios.post(
-    //   "https://api.behinkar.ir/accounts/reggister/",
-    //   value,
-    //   {
-    //     "Access-Control-Allow-Origin": "*",
-    //     "Content-Type": "application/json;charset=utf-8",
-    //   }
-    // );
+    if (value.phone_number === "") {
+      return;
+    }
+    const { data } = await axios.post(
+      "https://api.behinkar.ir/accounts/reggister/",
+      value,
+      {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json;charset=utf-8",
+      }
+    );
   };
   return (
     <>
@@ -52,20 +53,32 @@ function RegisterForm() {
         <input
           className={`input-class ${classNames({
             "focus:border-red-400    border-red-400 border-2":
-              errors?.phoneNumber?.message,
+              errors?.password1?.message,
           })}`}
           type="tel"
-          {...register("password1")}
+          {...register("password1", {
+            required: "رمز عبور الزامی می باشد",
+          })}
         />
+        {Boolean(errors?.password1?.message) && (
+          <span className="error-label">{errors.password1.message} </span>
+        )}
         <label className="label mt-4">تکرار رمز عبور </label>
         <input
           className={`input-class ${classNames({
             "focus:border-red-400    border-red-400 border-2":
-              errors?.phoneNumber?.message,
+              errors?.password2?.message,
           })}`}
           type="tel"
-          {...register("password2")}
+          {...register("password2", {
+            required: "تکرار رمز عبور الزامی می باشد",
+            validate: (value) =>
+              getValues("password1") == value || "تکرار رمز برابر نیست.",
+          })}
         />
+        {Boolean(errors?.password2?.message) && (
+          <span className="error-label">{errors.password2.message} </span>
+        )}
 
         <div className="flex justify-center pb-5  mt-6">
           <AppBtn type="submit" className="bg-[#567EBF]" size="lg">
