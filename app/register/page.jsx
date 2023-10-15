@@ -1,20 +1,15 @@
 "use client";
+
 import React from "react";
 import Head from "next/head";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { Button } from "@material-tailwind/react";
-import classNames from "classnames";
 
-import axios from "axios";
+
+import RegisterForm from "../components/form/RegisterForm";
 
 function RegisterPage() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+
 
   const router = useRouter();
 
@@ -23,24 +18,6 @@ function RegisterPage() {
 
   const handleNavigationClick = (url) => {
     router.push(url);
-  };
-
-  const callApi = (value) => {
-    // if (value.phone_number === "") {
-    //   return;
-    // }
-
-    // const { data } = await axios.post(
-    //   "https://api.behinkar.ir/accounts/reggister/",
-
-    //   value,
-    //   {
-    //     "Access-Control-Allow-Origin": "*",
-    //     "Content-Type": "application/json;charset=utf-8",
-    //   }
-    // );
-    // return data;
-    console.log(value);
   };
 
   return (
@@ -86,55 +63,7 @@ function RegisterPage() {
               </p>
               <div className=" rounded-lg shadow-lg bg-gray-50  ">
                 <div className="p-6 pb-0  min-w-[300px]">
-                  <form onSubmit={handleSubmit(callApi)}>
-                    <label className="label">شماره همراه</label>
-                    <input
-                      className={`input-class ${classNames({
-                        "focus:border-red-400    border-red-400 border-2":
-                          errors?.phone_number?.message,
-                      })}`}
-                      type="tel"
-                      {...register("phone_number", {
-                        required: "شماره موبایل الزامی است.",
-                        pattern: {
-                          value: /^09\d{9}$/,
-                          message: "شماره موبایل صحیح نمی باشد",
-                        },
-                      })}
-                      maxLength="11"
-                      placeholder="09139939426"
-                    />
-                    {Boolean(errors?.phone_number?.message) && (
-                      <span className="error-label">
-                        {errors.phone_number.message}{" "}
-                      </span>
-                    )}
-
-                    <label className="label mt-4">رمز عبور </label>
-                    <input
-                      className={`input-class ${classNames({
-                        "focus:border-red-400    border-red-400 border-2":
-                          errors?.phoneNumber?.message,
-                      })}`}
-                      type="tel"
-                      {...register("password1")}
-                    />
-                    <label className="label mt-4">تکرار رمز عبور </label>
-                    <input
-                      className={`input-class ${classNames({
-                        "focus:border-red-400    border-red-400 border-2":
-                          errors?.phoneNumber?.message,
-                      })}`}
-                      type="tel"
-                      {...register("password2")}
-                    />
-
-                    <div className="flex justify-center pb-5  mt-6">
-                      <Button type="submit" className="bg-[#567EBF]" size="lg">
-                        دریافت کد فعال سازی
-                      </Button>
-                    </div>
-                  </form>
+                  <RegisterForm />
 
                   <p className="my-4 p-2 text-sm  text-gray-600">
                     حساب کاربری دارید؟
