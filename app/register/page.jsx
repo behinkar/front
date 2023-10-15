@@ -26,20 +26,21 @@ function RegisterPage() {
   }
 
   async function callApi(value) {
-    if (value.phone_number === "") {
-      return;
-    }
+    // if (value.phone_number === "") {
+    //   return;
+    // }
 
-    const { data } = await axios.post(
-      "https://api.behinkar.ir/accounts/reggister/",
+    // const { data } = await axios.post(
+    //   "https://api.behinkar.ir/accounts/reggister/",
 
-      value,
-      {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json;charset=utf-8",
-      }
-    );
-    return data;
+    //   value,
+    //   {
+    //     "Access-Control-Allow-Origin": "*",
+    //     "Content-Type": "application/json;charset=utf-8",
+    //   }
+    // );
+    // return data;
+    console.log(value);
   }
 
   return (
