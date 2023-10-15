@@ -21,11 +21,11 @@ function RegisterPage() {
   const url = useSearchParams();
   const whichUser = url.get("w");
 
-  function handleNavigationClick(url) {
+  const handleNavigationClick = (url) => {
     router.push(url);
-  }
+  };
 
-  async function callApi(value) {
+  const callApi = (value) => {
     // if (value.phone_number === "") {
     //   return;
     // }
@@ -41,7 +41,7 @@ function RegisterPage() {
     // );
     // return data;
     console.log(value);
-  }
+  };
 
   return (
     <div>
