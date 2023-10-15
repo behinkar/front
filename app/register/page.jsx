@@ -82,7 +82,7 @@ function RegisterPage() {
               </p>
               <div className=" rounded-lg shadow-lg bg-gray-50  ">
                 <div className="p-6 pb-0  min-w-[300px]">
-                  <form onSubmit={handleSubmit((data) => callApi(data))}>
+                  <form onSubmit={handleSubmit( callApi(data))}>
                     <label className="label">شماره همراه</label>
                     <input
                       className={`input-class ${classNames({
