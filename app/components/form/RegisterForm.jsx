@@ -17,12 +17,8 @@ function RegisterForm() {
       return;
     }
     const { data } = await axios.post(
-      "https://api.behinkar.ir/accounts/reggister/",
-      value,
-      {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json;charset=utf-8",
-      }
+      "http://api.behinkar.ir/accounts/reggister/",
+      value
     );
   };
   return (
