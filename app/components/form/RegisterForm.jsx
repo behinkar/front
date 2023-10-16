@@ -17,7 +17,7 @@ function RegisterForm() {
       return;
     }
     const { data } = await axios.post(
-      "http://api.behinkar.ir/accounts/reggister/",
+      "https://api.behinkar.ir/accounts/reggister/",
       value
     );
   };
