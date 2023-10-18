@@ -1,9 +1,10 @@
-'use client'
+"use client";
 import { useForm } from "react-hook-form";
 
 import axios from "axios";
 import AppBtn from "../share/AppBtn";
 import classNames from "classnames";
+import http from "@/app/utils/httpService";
 
 function RegisterForm() {
   const {
@@ -13,19 +14,11 @@ function RegisterForm() {
     getValues,
   } = useForm();
   const onSubmit = async (value) => {
-    
-    
     console.log(value);
     if (value.phone_number === "") {
       return;
     }
-    const { data } = await axios.post(
-      "https://api.behinkar.ir/accounts/register/",
-      value,{
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      }
-    );
+    const { data } = await http.post("/register/", value);
   };
   return (
     <>
