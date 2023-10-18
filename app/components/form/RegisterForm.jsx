@@ -1,3 +1,4 @@
+'use client'
 import { useForm } from "react-hook-form";
 
 import axios from "axios";
@@ -12,13 +13,18 @@ function RegisterForm() {
     getValues,
   } = useForm();
   const onSubmit = async (value) => {
+    
+    
     console.log(value);
     if (value.phone_number === "") {
       return;
     }
     const { data } = await axios.post(
-      "https://api.behinkar.ir/accounts/reggister/",
-      value
+      "https://api.behinkar.ir/accounts/register/",
+      value,{
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      }
     );
   };
   return (
