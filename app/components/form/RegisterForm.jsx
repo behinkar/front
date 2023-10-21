@@ -18,7 +18,7 @@ function RegisterForm() {
     if (value.phone_number === "") {
       return;
     }
-    const { data } = await http.post("/register/", value);
+    const { data } = await http.post("/accounts/register/", value);
   };
   return (
     <>
@@ -76,9 +76,12 @@ function RegisterForm() {
         )}
 
         <div className="flex justify-center pb-5  mt-6">
-          <AppBtn type="submit" className="bg-[#567EBF]" size="lg">
-            دریافت کد فعال سازی
-          </AppBtn>
+          <AppBtn
+            label=" دریافت کد فعال سازی"
+            type="submit"
+            className="bg-[#567EBF]"
+            size="lg"
+          />
         </div>
       </form>
     </>
