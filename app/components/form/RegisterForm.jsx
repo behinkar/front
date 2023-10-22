@@ -1,89 +1,141 @@
 "use client";
 import { useForm } from "react-hook-form";
-
-import axios from "axios";
+import { useRouter } from "next/navigation";
 import AppBtn from "../share/AppBtn";
 import classNames from "classnames";
 import http from "@/app/utils/httpService";
+import { useState } from "react";
 
 function RegisterForm() {
+  const router = useRouter();
+  const [showNextForm, setShowNextForm] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState(null);
   const {
     register,
     handleSubmit,
     formState: { errors },
     getValues,
   } = useForm();
+
   const onSubmit = async (value) => {
-    console.log(value);
-    if (value.phone_number === "") {
-      return;
+    setPhoneNumber(value.phone_number);
+    const { data, status } = await http.post("/accounts/register/", value);
+    if (status < 400) {
+      setShowNextForm(true);
     }
-    const { data } = await http.post("/accounts/register/", value);
+  };
+
+  const onVerifySubmit = async (value) => {
+    console.log("value", value);
+    let dataForSend = {};
+    dataForSend.token = toString(value.token);
+    dataForSend.phone_number = toString(phoneNumber);
+
+    const { data, status } = await http.post(
+      "/accounts/phone-verify/",
+      dataForSend
+    );
+    if (status < 400) {
+      router.push("/");
+    }
   };
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label className="label">شماره همراه</label>
-        <input
-          className={`input-class ${classNames({
-            "focus:border-red-400    border-red-400 border-2":
-              errors?.phone_number?.message,
-          })}`}
-          type="tel"
-          {...register("phone_number", {
-            required: "شماره موبایل الزامی است.",
-            pattern: {
-              value: /^09\d{9}$/,
-              message: "شماره موبایل صحیح نمی باشد",
-            },
-          })}
-          maxLength="11"
-          placeholder="09139939426"
-        />
-        {Boolean(errors?.phone_number?.message) && (
-          <span className="error-label">{errors.phone_number.message} </span>
-        )}
-
-        <label className="label mt-4">رمز عبور </label>
-        <input
-          className={`input-class ${classNames({
-            "focus:border-red-400    border-red-400 border-2":
-              errors?.password1?.message,
-          })}`}
-          type="tel"
-          {...register("password1", {
-            required: "رمز عبور الزامی می باشد",
-          })}
-        />
-        {Boolean(errors?.password1?.message) && (
-          <span className="error-label">{errors.password1.message} </span>
-        )}
-        <label className="label mt-4">تکرار رمز عبور </label>
-        <input
-          className={`input-class ${classNames({
-            "focus:border-red-400    border-red-400 border-2":
-              errors?.password2?.message,
-          })}`}
-          type="tel"
-          {...register("password2", {
-            required: "تکرار رمز عبور الزامی می باشد",
-            validate: (value) =>
-              getValues("password1") == value || "تکرار رمز برابر نیست.",
-          })}
-        />
-        {Boolean(errors?.password2?.message) && (
-          <span className="error-label">{errors.password2.message} </span>
-        )}
-
-        <div className="flex justify-center pb-5  mt-6">
-          <AppBtn
-            label=" دریافت کد فعال سازی"
-            type="submit"
-            className="bg-[#567EBF]"
-            size="lg"
+      {!showNextForm ? (
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <label className="label">شماره همراه</label>
+          <input
+            className={`input-class ${classNames({
+              "focus:border-red-400    border-red-400 border-2":
+                errors?.phone_number?.message,
+            })}`}
+            type="tel"
+            {...register("phone_number", {
+              required: "شماره موبایل الزامی است.",
+              pattern: {
+                value: /^09\d{9}$/,
+                message: "شماره موبایل صحیح نمی باشد",
+              },
+            })}
+            maxLength="11"
+            placeholder="09139939426"
           />
-        </div>
-      </form>
+          {Boolean(errors?.phone_number?.message) && (
+            <span className="error-label">{errors.phone_number.message} </span>
+          )}
+
+          <label className="label mt-4">رمز عبور </label>
+          <input
+            className={`input-class ${classNames({
+              "focus:border-red-400    border-red-400 border-2":
+                errors?.password1?.message,
+            })}`}
+            type="tel"
+            {...register("password1", {
+              required: "رمز عبور الزامی می باشد",
+            })}
+          />
+          {Boolean(errors?.password1?.message) && (
+            <span className="error-label">{errors.password1.message} </span>
+          )}
+          <label className="label mt-4">تکرار رمز عبور </label>
+          <input
+            className={`input-class ${classNames({
+              "focus:border-red-400    border-red-400 border-2":
+                errors?.password2?.message,
+            })}`}
+            type="tel"
+            {...register("password2", {
+              required: "تکرار رمز عبور الزامی می باشد",
+              validate: (value) =>
+                getValues("password1") == value || "تکرار رمز برابر نیست.",
+            })}
+          />
+          {Boolean(errors?.password2?.message) && (
+            <span className="error-label">{errors.password2.message} </span>
+          )}
+
+          <div className="flex justify-center pb-5  mt-6">
+            <AppBtn
+              label=" دریافت کد فعال سازی"
+              type="submit"
+              className="bg-[#567EBF]"
+              size="lg"
+            />
+          </div>
+        </form>
+      ) : (
+        <form onSubmit={handleSubmit(onVerifySubmit)}>
+          <label className="label"> کد تایید</label>
+          <input
+            className={`input-class ${classNames({
+              "focus:border-red-400    border-red-400 border-2":
+                errors?.token?.message,
+            })}`}
+            type="tel"
+            {...register("token", {
+              required: "کد تایید الزامی می باشد",
+              pattern: {
+                value: /^\d{6}$/,
+                message: "کد تایید 6 رقمی می باشد.    ",
+              },
+            })}
+            maxLength="6"
+          />
+          {Boolean(errors?.token?.message) && (
+            <span className="error-label">{errors.token.message} </span>
+          )}
+
+          <div className="flex justify-center pb-5  mt-6">
+            <AppBtn
+              label="  تایید کد "
+              type="submit"
+              className="bg-[#567EBF]"
+              size="lg"
+            />
+          </div>
+        </form>
+      )}
     </>
   );
 }
