@@ -14,11 +14,11 @@ axiosInstance.defaults.timeout = 20000;
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    // const accessToken = localStorage.getItem("access");
+    const accessToken = localStorage.getItem("access");
 
-    // if (accessToken) {
-    //   config.headers["Authorization"] = "Bearer " + accessToken;
-    // }
+    if (accessToken) {
+      config.headers["Authorization"] = "Bearer " + accessToken;
+    }
     return config;
   },
   (error) => {

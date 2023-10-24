@@ -35,7 +35,7 @@ function LoginForm() {
       value
     );
     if (status < 400) {
-      localStorage.setItem("tokenbehin", dataLogin.data?.tokens?.access);
+      localStorage.setItem("access", dataLogin.data?.tokens?.access);
       //   {
       //     "data": {
       //         "user_id": "22",
