@@ -75,6 +75,10 @@ function RegisterForm() {
             type="text"
             {...register("password1", {
               required: "رمز عبور الزامی می باشد",
+              pattern: {
+                value: /^.{8,}$/,
+                message: "   رمز عبور باید حداقل 8 کارکتر باشد. ",
+              },
             })}
           />
           {Boolean(errors?.password1?.message) && (
