@@ -2,6 +2,7 @@
 import React from "react";
 import InputApp from "../components/Input/InputApp";
 import { useRouter, useSearchParams } from "next/navigation";
+import LoginForm from "../components/form/LoginForm";
 
 function LoginPage() {
   const router = useRouter();
@@ -44,7 +45,8 @@ function LoginPage() {
               </p>
               <div className=" rounded-lg shadow-lg bg-gray-50 ">
                 <div className="p-6 pb-0 ">
-                  <InputApp label="ایمیل یا شماره موبایل" />
+                  <LoginForm />
+                  <InputApp label="  شماره موبایل" />
                   <InputApp label="رمز عبور" />
                   <p className="text-xs text-gray-500 mb-4">فراموشی رمز عبور</p>
                   <div className="flex justify-center mb-4">

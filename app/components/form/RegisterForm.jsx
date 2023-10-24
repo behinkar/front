@@ -28,15 +28,17 @@ function RegisterForm() {
   const onVerifySubmit = async (value) => {
     console.log("value", value);
     let dataForSend = {};
-    dataForSend.token = toString(value.token);
-    dataForSend.phone_number = toString(phoneNumber);
+
+    dataForSend.token = value.token;
+    dataForSend.phone_number = phoneNumber;
 
     const { data, status } = await http.post(
-      "/accounts/phone-verify/",
+      `/accounts/phone-verify/?token=${value.token}&phone_number=${phoneNumber}`,
       dataForSend
     );
     if (status < 400) {
-      router.push("/");
+      localStorage.setItem("tbehin", value.token);
+      router.push("/login");
     }
   };
   return (
@@ -70,7 +72,7 @@ function RegisterForm() {
               "focus:border-red-400    border-red-400 border-2":
                 errors?.password1?.message,
             })}`}
-            type="tel"
+            type="text"
             {...register("password1", {
               required: "رمز عبور الزامی می باشد",
             })}
@@ -84,7 +86,7 @@ function RegisterForm() {
               "focus:border-red-400    border-red-400 border-2":
                 errors?.password2?.message,
             })}`}
-            type="tel"
+            type="text"
             {...register("password2", {
               required: "تکرار رمز عبور الزامی می باشد",
               validate: (value) =>
