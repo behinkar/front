@@ -2,10 +2,12 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { TiUser } from "react-icons/ti";
+import { useRouter } from "next/navigation";
 import { MdOutlineExitToApp } from "react-icons/md";
 import http from "@/app/utils/httpService";
 
 function TopMenu() {
+  const router = useRouter();
   const [isLogin, setIsLogin] = useState(false);
   useEffect(() => {
     setIsLogin(localStorage.getItem("access"));
@@ -13,10 +15,11 @@ function TopMenu() {
   const handleCheckOut = async () => {
     // const { data, status } = await http.post(`/accounts/logout/`);
     localStorage.removeItem("access");
+    window.location.reload();
   };
 
   return (
-    <div className="flex p-6 px-8 justify-between">
+    <div className="flex p-6 px-8 justify-between items-center">
       <div className="hidden md:flex items-center gap-6">
         <Link href="/#">خانه</Link>
         <Link href="/#">فرصت های شغلی</Link>
@@ -29,7 +32,7 @@ function TopMenu() {
           {Boolean(isLogin) ? (
             <>
               <details className="dropdown ">
-                <summary className=" btn bg-transparent">
+                <summary className=" btn bg-transparent h-9">
                   <TiUser
                     size={30}
                     className=" cursor-pointer hover:scale-105"
@@ -63,7 +66,9 @@ function TopMenu() {
             </>
           )}
         </div>
-        <div className="font-black text-colorTitle text-xl">بهین کار</div>
+        <div className="font-black text-colorTitle text-xl flex items-center">
+          بهین کار
+        </div>
       </div>
     </div>
   );
