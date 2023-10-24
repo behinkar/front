@@ -25,24 +25,17 @@ function LoginForm() {
       );
       if (status < 400) {
         localStorage.setItem("tbehin", data.params.token);
-        // {
-        //   "success": "Verification code successfully sent",
-        //   "params": {
-        //       "receptor": "09139939426",
-        //       "token": 455095,
-        //       "template": "phone-login2"
-        //   }
       }
     }
 
     setPhoneNumber(value.phone_number);
     value.user_token = localStorage.getItem("tbehin");
-    const { data, status } = await http.post(
+    const { data: dataLogin, status } = await http.post(
       "/accounts/login-with-phone/",
       value
     );
     if (status < 400) {
-      localStorage.setItem("tokenbehin", data.tokens.access);
+      localStorage.setItem("tokenbehin", dataLogin.data?.tokens?.access);
       //   {
       //     "data": {
       //         "user_id": "22",
