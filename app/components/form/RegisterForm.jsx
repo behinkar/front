@@ -6,7 +6,8 @@ import classNames from "classnames";
 import http from "@/app/utils/httpService";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
-function RegisterForm() {
+function RegisterForm({ whichUser }) {
+  console.log("whichUser", whichUser);
   const router = useRouter();
   const [showNextForm, setShowNextForm] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState(null);
@@ -18,6 +19,9 @@ function RegisterForm() {
   } = useForm();
 
   const onSubmit = async (value) => {
+    if (whichUser == "employer") {
+      value.user_type = "EMPLOYER";
+    }
     setPhoneNumber(value.phone_number);
     try {
       const { data, status } = await http.post("/accounts/register/", value);
@@ -67,7 +71,12 @@ function RegisterForm() {
     );
     if (status < 400) {
       localStorage.setItem("tbehin", value.token);
-      router.push("/login");
+      if (whichUser == "employer") {
+        localStorage.setItem("wuser", "EMPLOYER");
+        router.push("/login?w=employer");
+      } else {
+        router.push("/login");
+      }
     }
   };
   return (

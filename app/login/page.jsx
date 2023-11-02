@@ -27,9 +27,7 @@ function LoginPage() {
                 <span className="">
                   <span className="">کارفرما هستید؟ </span>
                   <span
-                    onClick={() =>
-                      handleNavigationClick("/register?w=employer")
-                    }
+                    onClick={() => handleRouteClick("/register?w=employer")}
                     className=" ml-2 mr-1 hover:font-bold cursor-pointer text-colorTitle"
                   >
                     ورود
@@ -46,7 +44,6 @@ function LoginPage() {
               <div className=" rounded-lg shadow-lg bg-gray-50 ">
                 <div className="p-6 pb-0 ">
                   <LoginForm />
-                
                 </div>
                 <p className="text-xs pr-3 pb-3 text-gray-500 ">
                   <span className="">حساب کارفرمایی ندارید؟</span>

@@ -74,7 +74,7 @@ function RegisterPage() {
               </p>
               <div className=" rounded-lg shadow-lg bg-gray-50  ">
                 <div className="p-6 pb-0  min-w-[300px]">
-                  <RegisterForm />
+                  <RegisterForm whichUser={whichUser} />
 
                   <p className="my-4 p-2 text-sm  text-gray-600">
                     حساب کاربری دارید؟
