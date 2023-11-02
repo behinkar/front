@@ -36,9 +36,12 @@ function RegisterForm() {
         });
       }
     } catch (error) {
-      console.log(error);
+      let textError = error.response.data.phone_number[0];
+      if (!Boolean(textError)) {
+        textError = "شماره موبایل تکراری است";
+      }
 
-      toast.error("شماره موبایل تکراری است", {
+      toast.error(textError, {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
