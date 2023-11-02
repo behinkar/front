@@ -14,6 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
       <body className={inter.className}>
+      
         {/* <TanstackProvider> */}
         {children}
         {/* </TanstackProvider> */}

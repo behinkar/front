@@ -4,13 +4,12 @@ import React from "react";
 import Head from "next/head";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 import RegisterForm from "../components/form/RegisterForm";
 
 function RegisterPage() {
-
-
   const router = useRouter();
 
   const url = useSearchParams();
@@ -25,6 +24,18 @@ function RegisterPage() {
       <Head>
         <title>ثبت نام کارفرما</title>
       </Head>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <div className="md:grid md:grid-cols-[2fr_3fr] bg-gray-300">
         <div
           className="hidden md:block bg-cover bg-no-repeat bg-right"

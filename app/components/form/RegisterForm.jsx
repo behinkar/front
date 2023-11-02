@@ -5,7 +5,7 @@ import AppBtn from "../share/AppBtn";
 import classNames from "classnames";
 import http from "@/app/utils/httpService";
 import { useState } from "react";
-
+import { toast, ToastContainer } from "react-toastify";
 function RegisterForm() {
   const router = useRouter();
   const [showNextForm, setShowNextForm] = useState(false);
@@ -19,9 +19,35 @@ function RegisterForm() {
 
   const onSubmit = async (value) => {
     setPhoneNumber(value.phone_number);
-    const { data, status } = await http.post("/accounts/register/", value);
-    if (status < 400) {
-      setShowNextForm(true);
+    try {
+      const { data, status } = await http.post("/accounts/register/", value);
+      if (status < 400) {
+        setShowNextForm(true);
+      } else {
+        toast.error("🦄 Wow so easy!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+
+      toast.error("شماره موبایل تکراری است", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
   };
 
