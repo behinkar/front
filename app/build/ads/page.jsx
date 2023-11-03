@@ -78,82 +78,70 @@ function page() {
   return (
     <>
       <TopMenu />
-      <div className="grid grid-cols-[7fr,3fr] min-h-screen  gap-8 p-4">
+      <div className="grid  min-h-screen  gap-8 p-4">
         <div className=" flex flex-col gap-6 h-full  ">
-          <div className="border border-colorTitle rounded p-6 ">
+          <div className="border border-colorTitle rounded p-6  bg-[#eaf0fc]">
             <div className="flex text-colorTitle w-full items-center gap-3 border-b border-b-[#567EBF] pb-4">
-              <FaUserTie size={25} />
-              <span className=" font-bold">اطلاعات فردی</span>
+              {/* <FaUserTie size={25} /> */}
+              <span className=" font-bold">ویژگی های آگهی های شغلی </span>
             </div>
-            <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 px-6">
-              <div className="flex  items-center gap-4 ">
-                <div className="w-20 h-20 bg-gray-300  rounded-full"></div>
-                <InputApp name="نام *" />
-              </div>
-              <InputApp name="نام خانوادگی *" />
-              {/* part2 */}
-              <div className="flex  items-center  ">
-                <AppBtn
-                  className="px-2 rounded-md  inline-block whitespace-nowrap  ml-5"
-                  label="آپلود عکس"
-                />
-                <AppSelect
-                  placeholder="*جنسیت"
-                  name="gender"
-                  options={dataForSelect.gender}
-                />
-              </div>
 
-              <AppSelect
-                className="my-auto"
-                placeholder="وضعیت تاهل  *"
-                name="MaritalStatus"
-                options={dataForSelect.MaritalStatus}
-              />
-            </div>
-            <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 px-6">
+            <div className="mt-8 grid grid-cols-2 gap-x-10 gap-y-10 px-6">
+              <InputApp name=" عنوان آگهی  " />
+              <InputApp name=" حوزه شغلی " />
               {/* part3 */}
               <AppSelect
-                placeholder="وضعیت خدمت*"
+                placeholder="استان"
                 name="soliderStatus"
                 options={dataForSelect.soliderStatus}
               />
               <AppSelect
-                placeholder="وضعیت شغل فعلی *"
+                placeholder="شهر"
                 name="JobStatus"
                 options={dataForSelect.JobStatus}
               />
-              <InputApp name="سال تولد  *" />
-              <InputApp name=" تخصص *" />
-              <InputApp name=" تلفن همراه *" />
+
+              <AppSelect
+                placeholder="نوع حضور"
+                name="soliderStatus"
+                options={dataForSelect.soliderStatus}
+              />
+              <AppSelect
+                placeholder="نوع قرارداد"
+                name="JobStatus"
+                options={dataForSelect.JobStatus}
+              />
+              <AppSelect
+                placeholder=" حقوق"
+                name="soliderStatus"
+                options={dataForSelect.soliderStatus}
+              />
+              <AppSelect
+                placeholder="حداقل حقوق "
+                name="JobStatus"
+                options={dataForSelect.JobStatus}
+              />
+              {/* <InputApp name=" تلفن همراه *" />
               <InputApp name=" ایمیل   *" />
               <InputApp name=" استان *" />
-              <InputApp name=" شهرستان *" />
+              <InputApp name=" شهرستان *" /> */}
             </div>
             <div className="mt-8 grid grid-cols-1 px-6">
               {/* part3 */}
               <InputAreaApp name=" آدرس محل سکونت" />
             </div>
           </div>
-
-          {data.map((item, index) => (
-            <>
-              <InfoCard title={item.title} content={item.content}>
-                {item.icon}
-              </InfoCard>
-            </>
-          ))}
-          <SocialCard />
-        </div>
-        <div className="h-full ">
-          <div className=" border border-colorTitle rounded p-4">
-            <ProgressPart />
-          </div>
         </div>
       </div>
       <div className="grid grid-cols-2 gap-6 px-4 py-6">
-        <AppBtn className="px-2 rounded-md ml-5" label=" ذخیره" />
-        <AppBtn className="px-2 rounded-md ml-5" label="دریافت رزومه " />
+        <AppBtn
+          className="px-2 rounded-md ml-5 text-colorTitle font-bold"
+          label=" ذخیره"
+        />
+        <AppBtn
+          className="px-2 rounded-md ml-5 text-colorTitle font-bold"
+          label="دریافت رزومه "
+        />
       </div>
       <Footer />
     </>
