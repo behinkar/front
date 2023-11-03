@@ -32,7 +32,10 @@ function TopMenu() {
         <Link className={isActivePath("/")} href="/">
           خانه
         </Link>
-        <Link className={isActivePath("/search")} href="/#">
+        <Link
+          className={isActivePath("/job-opportunity")}
+          href="/job-opportunity"
+        >
           فرصت های شغلی
         </Link>
         <Link className={isActivePath("/search")} href="/#">
@@ -66,6 +69,16 @@ function TopMenu() {
                         color="#000"
                       />
                       <a>خروج</a>
+                    </div>
+                  </li>
+                  <li onClick={() => router.push("/user")}>
+                    <div className="flex gap-2">
+                      <TiUser
+                        size={20}
+                        className=" cursor-pointer hover:scale-105"
+                        color="#000"
+                      />
+                      <a>پروفایل</a>
                     </div>
                   </li>
                 </ul>

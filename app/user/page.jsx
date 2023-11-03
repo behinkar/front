@@ -8,8 +8,8 @@ function page() {
     <>
       <div className="">
         <TopMenu />
-        <SearchPart />
-        <JobSuggestion />
+        {/* <SearchPart /> */}
+        {/* <JobSuggestion /> */}
         <CardUser />
         <OperationCard />
       </div>

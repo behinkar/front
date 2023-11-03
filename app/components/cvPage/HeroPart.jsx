@@ -3,8 +3,8 @@ import React from "react";
 
 function HeroPartCv() {
   return (
-    <div className="grid grid-cols-[1fr_3fr] border my-4 border-blue-400 p-4 max-w-6xl mx-auto">
-      <div className="relative h-96 aspect-square">
+    <div className="grid md:grid-cols-[1fr_3fr] border my-4 border-blue-400 p-4 rounded-md overflow-hidden">
+      <div className="relative h-64  flex justify-center items-center md:h-96 aspect-square">
         <Image
           className="rounded-md border-l-gray-300 border-l-2"
           src="/images/bgCv.png"
@@ -18,7 +18,7 @@ function HeroPartCv() {
           است.
         </p>
         <div className="grow flex flex-col justify-center items-center">
-          <p className="text-colorTitle font-bold mb-6">
+          <p className="text-colorTitle text-base font-bold mb-6">
             ساخت رزومه استاندارد و حرفه ای با رزومه ساز بهین کار
           </p>
 
