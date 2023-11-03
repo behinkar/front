@@ -38,9 +38,9 @@ function TopMenu() {
         >
           فرصت های شغلی
         </Link>
-        <Link className={isActivePath("/search")} href="/#">
+        {/* <Link className={isActivePath("/search")} href="/#">
           آکادمی
-        </Link>
+        </Link> */}
         <Link className={isActivePath("/cv")} href="/cv">
           رزومه ساز
         </Link>
