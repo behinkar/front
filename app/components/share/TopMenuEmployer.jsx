@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { TiUser } from "react-icons/ti";
+import { IoIosBusiness } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import { MdOutlineExitToApp } from "react-icons/md";
 import http from "@/app/utils/httpService";
@@ -33,7 +33,7 @@ function TopMenuEmployer() {
             <>
               <details className="dropdown ">
                 <summary className=" btn bg-transparent h-9">
-                  <TiUser
+                  <IoIosBusiness
                     size={30}
                     className=" cursor-pointer hover:scale-105"
                     color=""

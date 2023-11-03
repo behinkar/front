@@ -16,9 +16,9 @@ function JobOpportunity() {
       <TopMenu />
       {/* <HeroHeader /> */}
       {/* <SearchPart /> */}
-      <JobSuggestion />
       {/* <AdsBanners /> */}
       <NewJobs />
+      <JobSuggestion />
       <div className="my-12">
         <HeroPartCv />
       </div>

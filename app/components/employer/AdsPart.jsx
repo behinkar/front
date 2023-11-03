@@ -22,7 +22,10 @@ function AddAds() {
   return (
     <>
       <div className="lense w-2/3 h-40 mx-auto mt-auto p-8 md:mb-20 flex justify-center items-center">
-        <AppBtn label="ثبت رایگان آگهی های شغلی" />
+        <AppBtn
+          className="text-colorTitle font-bold"
+          label="ثبت رایگان آگهی های شغلی"
+        />
       </div>
     </>
   );
