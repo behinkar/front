@@ -102,7 +102,7 @@ function BuildAds() {
               {/* part2 */}
               <div className="flex  items-center  ">
                 <AppBtn
-                  className="hidden px-2 rounded-md  md:inline-block whitespace-nowrap  ml-5"
+                  className="hidden px-2 rounded-md  md:inline-block whitespace-nowrap text-black  ml-5"
                   label="آپلود عکس"
                 />
                 <InputApp name="ایمیل شرکت   *" />
@@ -138,7 +138,7 @@ function BuildAds() {
             </div>
             <div className="flex justify-center my-6">
               <AppBtn
-                className="px-6 rounded-md  inline-block whitespace-nowrap  "
+                className="px-6 rounded-md  inline-block whitespace-nowrap text-black  "
                 label=" ثبت اطلاعات"
               />
             </div>

@@ -5,8 +5,10 @@ import { TiUser } from "react-icons/ti";
 import { useRouter } from "next/navigation";
 import { MdOutlineExitToApp } from "react-icons/md";
 import http from "@/app/utils/httpService";
+import { usePathname } from "next/navigation";
 
 function TopMenu() {
+  const pathname = usePathname();
   const router = useRouter();
   const [isLogin, setIsLogin] = useState(false);
   useEffect(() => {
@@ -17,15 +19,31 @@ function TopMenu() {
     localStorage.removeItem("access");
     window.location.reload();
   };
+  const isActivePath = (path) => {
+    if (pathname == path) {
+      return " text-[#567EBF] font-black scale-105";
+    }
+    return "";
+  };
 
   return (
-    <div className="flex p-6 px-8 justify-between items-center">
+    <div className="flex p-6 px-8 justify-between items-center ">
       <div className="hidden md:flex items-center gap-6">
-        <Link href="/#">خانه</Link>
-        <Link href="/#">فرصت های شغلی</Link>
-        <Link href="/#">آکادمی</Link>
-        <Link href="/cv">رزومه ساز</Link>
-        <Link href="/search">جستجو مشاغل</Link>
+        <Link className={isActivePath("/")} href="/">
+          خانه
+        </Link>
+        <Link className={isActivePath("/search")} href="/#">
+          فرصت های شغلی
+        </Link>
+        <Link className={isActivePath("/search")} href="/#">
+          آکادمی
+        </Link>
+        <Link className={isActivePath("/cv")} href="/cv">
+          رزومه ساز
+        </Link>
+        <Link className={isActivePath("/search")} href="/search">
+          جستجو مشاغل
+        </Link>
       </div>
       <div className="flex">
         <div className="flex ml-8 items-center  gap-1">
