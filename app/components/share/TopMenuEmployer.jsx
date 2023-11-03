@@ -2,10 +2,11 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { IoIosBusiness } from "react-icons/io";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { MdOutlineExitToApp } from "react-icons/md";
 import http from "@/app/utils/httpService";
 function TopMenuEmployer() {
+  const pathname = usePathname();
   const router = useRouter();
   const [isLogin, setIsLogin] = useState(false);
   useEffect(() => {
@@ -16,16 +17,36 @@ function TopMenuEmployer() {
     localStorage.removeItem("access");
     window.location.reload();
   };
+  const isActivePath = (path) => {
+    if (pathname == path) {
+      return " text-[#567EBF] font-black scale-105";
+    }
+    return "";
+  };
   return (
     <div className="flex p-6 px-8 justify-between">
       <div className=" items-center gap-6 hidden md:flex">
-        <Link href="/#">خانه</Link>
-        <Link href="/#">ثبت رایگان آگهی</Link>
-        <Link href="/#">استخدام از آکادمی</Link>
-        <Link href="/#">استخدام تضمینی </Link>
-        <Link href="/#">تبلیغات اختصاصی </Link>
-        <Link href="/#">تبلیغات اختصاصی </Link>
-        <Link href="/#">بخش کارجویان </Link>
+        <Link className={isActivePath("/employer")} href="/employer">
+          خانه
+        </Link>
+        <Link className={isActivePath("/build/ads")} href="/build/ads">
+          ثبت رایگان آگهی
+        </Link>
+        <Link className={isActivePath("/job-opportunity")} href="/#">
+          استخدام از آکادمی
+        </Link>
+        <Link className={isActivePath("/job-opportunity")} href="/#">
+          استخدام تضمینی{" "}
+        </Link>
+        <Link className={isActivePath("/job-opportunity")} href="/#">
+          تبلیغات اختصاصی{" "}
+        </Link>
+        <Link className={isActivePath("/job-opportunity")} href="/#">
+          تبلیغات اختصاصی{" "}
+        </Link>
+        <Link className={isActivePath("/job-opportunity")} href="/#">
+          بخش کارجویان{" "}
+        </Link>
       </div>
       <div className="flex">
         <div className="flex ml-8 items-center  gap-1">
