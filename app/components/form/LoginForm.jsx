@@ -46,7 +46,11 @@ function LoginForm() {
       //         }
       //     }
       // }
-      router.push("/");
+      if (localStorage.getItem("wuser") == "EMPLOYER") {
+        router.push("/employer");
+      } else {
+        router.push("/");
+      }
     }
   };
 

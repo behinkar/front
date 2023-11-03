@@ -27,7 +27,7 @@ function LoginPage() {
                 <span className="">
                   <span className="">کارفرما هستید؟ </span>
                   <span
-                    onClick={() => handleRouteClick("/register?w=employer")}
+                    onClick={() => handleRouteClick("/login?w=employer")}
                     className=" ml-2 mr-1 hover:font-bold cursor-pointer text-colorTitle"
                   >
                     ورود
